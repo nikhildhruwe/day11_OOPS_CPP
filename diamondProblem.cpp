@@ -9,7 +9,7 @@ class A{
         }
 };
 
-class B : public A{
+class B : virtual public A{
     public:
         char b = 'B';
         B(){
@@ -17,7 +17,7 @@ class B : public A{
         }
 };
 
-class C : public A{
+class C : virtual public A{
     public:
         char c = 'C';
         C(){
@@ -35,7 +35,9 @@ class D : public B, public C{
 
 int main(){
     D d;
-   // cout << d.a << endl; // cannot access a cause a member is ambiguous
+   // cout << d.a << endl; // cannot access a, because class A member  is ambiguous
+   // This can be Avoided by using virtual keyword.
+    cout << d.a << endl;
     cout << d.c << endl;
     cout << d.b << endl;
     cout << d.d << endl;
